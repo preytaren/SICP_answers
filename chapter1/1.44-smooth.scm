@@ -1,0 +1,13 @@
+(define dx 0.000001)
+(define (average x y z)
+ 	(/ (+ x y z) 3))
+(define (smooth f)
+	(lambda (x)
+	 	(average (f (- x dx))
+		 	 (f x)
+			 (f (+ x dx)))))
+
+(load "1.43-repeated.scm")
+(define (smooth-n n)
+ 	(lambda (x)
+		((repeated smooth n) x)))
