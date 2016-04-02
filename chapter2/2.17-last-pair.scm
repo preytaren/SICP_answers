@@ -1,0 +1,6 @@
+(define (last-pair li)
+ 	(define (last-pair-iter li last)
+ 		(if (null? li)
+	            (list last)
+		    (last-pair-iter (cdr li) (car li))))
+	(last-pair-iter li 0))

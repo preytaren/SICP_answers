@@ -1,0 +1,8 @@
+(define (same-parity x . li)
+ 	(define (same-parity-iter x li result)
+ 		(if (null? li)
+		    (reverse result)
+		    (if (even? (abs (- x (car li))))
+		        (same-parity-iter x (cdr li) (cons (car li) result))
+			(same-parity-iter x (cdr li) result))))
+	(same-parity-iter x li (list x)))
