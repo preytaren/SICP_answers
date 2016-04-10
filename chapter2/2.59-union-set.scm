@@ -1,0 +1,8 @@
+(load "unordered-set.scm")
+(define (union-set set1 set2)
+ 	(define (iter set1 result)
+	 	(cond ((null? set1) (reverse result))
+		      ((not (element-of-set? (car set1) result))
+			    (iter (cdr set1) (cons (car set1) result)))
+		      (else (iter (cdr set1) result))))
+	(iter set1 set2))

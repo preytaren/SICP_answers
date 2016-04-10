@@ -1,0 +1,13 @@
+(define (union-set s1 s2)
+ 	(define (iter s1 s2 result)
+		(let ((p1 (car s1))
+		      (p2 (car s2))
+		      (r1 (cdr s1))
+		      (r2 (cdr s2)))
+		 (cond ((null? r1) (append result r2))
+		       ((null? r2) (append result r1))
+		       ((= p1 p2) (iter r1 r2 (cons p1 result)))
+		       ((< p1 p2) (iter r1 s2 (cons p1 result)))
+		       ((> p1 p2) (iter s1 r2 (cons p2 result))))))
+	(iter s1 s2 ()))
+		       
