@@ -1,0 +1,7 @@
+(define (rand tag)
+ 	(let ((x 0))
+ 	(cond ((eq? tag 'reset)
+	       (lambda (new-val) (set! x new-val)))
+	      ((eq? tag 'generate)
+	       (rand))
+	      (else (error "Unknown tag" tag)))))

@@ -1,0 +1,8 @@
+(define (make-monitored f)
+ 	(let ((count 0))
+ 	 (lambda (tag)
+	 	 (cond ((eq? tag 'reset-count) 
+			(begin (set! count 0) 0))
+		       ((eq? tag 'how-many-calls?) count)
+		       (else (begin (set! count (+ count 1))
+			            (f tag)))))))

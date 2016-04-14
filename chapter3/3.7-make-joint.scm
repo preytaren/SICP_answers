@@ -1,0 +1,6 @@
+(load "3.3-make-account.scm")
+(define (make-joint account oldpass newpass)
+ 	(lambda (pass mode)
+	 	(if (eq? pass newpass)
+		    (account oldpass mode)
+		    (else (error "Incorrect Password")))))
