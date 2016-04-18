@@ -1,0 +1,1 @@
+make-cycle过程将表的首尾连接到一起，(last-pair z)会无限的循环下去

@@ -1,0 +1,13 @@
+(define (check-circle x)
+ 	(define (inlist? x li)
+	        (cond ((null? li) false)
+		      ((eq? x (car li)) true)
+		      (else (inlist? x (cdr li)))))
+	(define (insert x li)
+	 	(cons x li))
+	(define (iter x li)
+	     (cond ((null? x) false)
+		   ((inlist? (car x)) true)
+		   (else (iter (cdr x) (cons (car x) li)))))
+	(iter x ()))
+
